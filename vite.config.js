@@ -7,8 +7,13 @@ import { fileURLToPath } from 'node:url';
 const root = dirname(fileURLToPath(import.meta.url));
 const src = (...p) => resolve(root, 'src', ...p);
 
-// PLACEHOLDER: real production origin. Used for canonical, og:url, hreflang.
-export const SITE = 'https://nagary.example';
+// Public URL of the site (no trailing slash), used for canonical, og:url,
+// hreflang and structured data. The GitHub Pages workflow sets SITE_URL;
+// locally it falls back to a placeholder origin.
+export const SITE = (process.env.SITE_URL || 'https://ngary.example').replace(/\/$/, '');
+// Vite's `base` ('/' locally, '/ngary-landing/' on GitHub Pages). Set from
+// the resolved config so in-page links (which Vite does not rewrite) follow it.
+let BASE = '/';
 
 const LANGS = {
   ar: { dir: 'rtl', other: 'en' },
@@ -30,13 +35,13 @@ const esc = (s) =>
  *                                           becomes "hero" (unique SVG ids per instance)
  *  {{a.b.c}}        dictionary value, HTML-escaped
  *  {{a.b.c_html}}   dictionary value, raw (only for <em>/<bdi>/<br> in copy)
- *  {{@lang}} {{@dir}} {{@other}} {{@site}}  page variables
+ *  {{@lang}} {{@dir}} {{@other}} {{@site}} {{@base}}  page variables
  *
  * A missing key throws, so a blank string can never ship silently.
  */
 function render(lang) {
   const dict = JSON.parse(readFileSync(src('i18n', `${lang}.json`), 'utf8'));
-  const vars = { lang, dir: LANGS[lang].dir, other: LANGS[lang].other, site: SITE };
+  const vars = { lang, dir: LANGS[lang].dir, other: LANGS[lang].other, site: SITE, base: BASE };
 
   const include = (html, depth = 0) =>
     html.replace(/<!--\s*include:(\S+)((?:\s+\w+=\S+)*)\s*-->/g, (_, file, args) => {
@@ -100,13 +105,18 @@ function i18nPages() {
   const watched = [src('template.html'), src('partials'), src('i18n'), src('img-manifest.json')];
   return {
     name: 'nagary-i18n',
+    configResolved(config) {
+      BASE = config.base;
+    },
     transformIndexHtml: {
       // 'pre' runs before Vite parses the HTML, so the <script type=module> and
       // <link rel=stylesheet> inside the rendered template get processed normally.
       order: 'pre',
       handler(html, ctx) {
         const m = ctx.path.match(/^\/(ar|en)\/index\.html$/);
-        return m ? render(m[1]) : html;
+        if (m) return render(m[1]);
+        // the root redirect page only needs the site URL
+        return html.replace(/\{\{@site\}\}/g, SITE);
       },
     },
     // The template/partials/JSON are not in the module graph, and a normal
