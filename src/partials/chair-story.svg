@@ -1,0 +1,122 @@
+<!--
+  The story armchair, split into layers that story.js animates step by step.
+  Authored in its FINISHED state ("home") so the no-JS page shows the
+  complete scene; GSAP sets every "before" state at runtime (rule 1).
+  Intermediate-only layers (grid, sketch, dims, swatches) carry opacity="0".
+  No animated <g> has an authored transform, so GSAP can compute
+  transform-origin from the bounding box.
+-->
+<svg class="stage-svg" viewBox="0 0 400 400" width="400" height="400" aria-hidden="true" focusable="false">
+  <rect class="s-grid" x="0" y="0" width="400" height="400" fill="url(#p-grid)" opacity="0"/>
+
+  <!-- room -->
+  <g class="s-room">
+    <g class="s-prop s-art">
+      <rect x="22" y="36" width="72" height="88" rx="4" fill="#F3EADF" stroke="#6B4226" stroke-width="5"/>
+      <path d="M40 112V78Q40 58 58 58Q76 58 76 78V112Z" fill="#B79AD6"/>
+      <circle cx="58" cy="92" r="7" fill="#C8986A"/>
+    </g>
+    <g class="s-prop s-plant">
+      <g stroke="#B58357" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M44 300Q40 230 26 176"/><path d="M44 300Q46 220 48 160"/><path d="M44 300Q52 236 68 184"/>
+      </g>
+      <g fill="#E4C9A5">
+        <ellipse cx="25" cy="176" rx="7" ry="24" transform="rotate(-14 25 176)"/>
+        <ellipse cx="48" cy="160" rx="7" ry="26"/>
+        <ellipse cx="68" cy="184" rx="7" ry="22" transform="rotate(16 68 184)"/>
+      </g>
+      <path d="M26 298Q18 330 30 352H58Q70 330 62 298Z" fill="#6B4226"/>
+      <path d="M30 304H58" stroke="#C8986A" stroke-width="2" opacity=".6"/>
+    </g>
+    <g class="s-prop s-lamp">
+      <path d="M352 112V350" stroke="#141114" stroke-width="3"/>
+      <ellipse cx="352" cy="352" rx="18" ry="4.5" fill="#141114"/>
+      <path d="M328 82H376L388 114H316Z" fill="#C8986A"/>
+      <path d="M330 86H374" stroke="#FAF6F0" stroke-width="2" opacity=".5"/>
+    </g>
+    <g class="s-rug">
+      <path d="M34 350H366L384 374H16Z" fill="url(#p-stripe)"/>
+      <path d="M34 350H366L384 374H16Z" fill="none" stroke="#6B4226" stroke-width="2" opacity=".5"/>
+    </g>
+  </g>
+
+  <!-- sketch: pencil outlines of the exact same parts (pathLength=1 for drawing) -->
+  <g class="s-sketch" fill="none" stroke="#5E5462" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+    <path class="s-line s-guide" pathLength="1" d="M30 58H370" opacity=".45"/>
+    <path class="s-line s-guide" pathLength="1" d="M30 206H370" opacity=".45"/>
+    <path class="s-line s-guide" pathLength="1" d="M30 358H370" opacity=".45"/>
+    <path class="s-line s-guide" pathLength="1" d="M200 30V380" opacity=".45"/>
+    <path class="s-line" pathLength="1" d="M104 106Q104 58 152 58H248Q296 58 296 106V220Q296 232 284 232H116Q104 232 104 220Z"/>
+    <path class="s-line" pathLength="1" d="M122 110Q122 76 156 76H244Q278 76 278 110V210Q278 222 266 222H134Q122 222 122 210Z"/>
+    <path class="s-line" pathLength="1" d="M64 168Q64 142 90 142H98Q124 142 124 168V282H64Z"/>
+    <path class="s-line" pathLength="1" d="M276 168Q276 142 302 142H310Q336 142 336 168V282H276Z"/>
+    <path class="s-line" pathLength="1" d="M112 224Q112 206 130 206H270Q288 206 288 224V250Q288 262 276 262H124Q112 262 112 250Z"/>
+    <path class="s-line" pathLength="1" d="M66 272H334V298H66Z"/>
+    <path class="s-line" pathLength="1" d="M92 298H110L96 358H86Z"/>
+    <path class="s-line" pathLength="1" d="M290 298H308L314 358H304Z"/>
+  </g>
+  <g class="s-dims" opacity="0">
+    <path d="M66 380H334M66 372V388M334 372V388" stroke="#5B2A86" stroke-width="1.6" fill="none"/>
+    <path d="M74 376L66 380L74 384M326 376L334 380L326 384" stroke="#5B2A86" stroke-width="1.6" fill="none"/>
+    <text class="s-dim-label" x="200" y="372" text-anchor="middle">{{story.dim}}</text>
+  </g>
+
+  <ellipse class="s-shadow" cx="200" cy="360" rx="150" ry="10" fill="#141114" opacity=".18"/>
+
+  <!-- frame (walnut) -->
+  <g class="s-wood">
+    <g class="s-part">
+      <path d="M146 298H158L156 338H148Z" fill="#4A2C18"/>
+      <path d="M242 298H254L252 338H244Z" fill="#4A2C18"/>
+    </g>
+    <g class="s-part">
+      <path d="M104 106Q104 58 152 58H248Q296 58 296 106V220Q296 232 284 232H116Q104 232 104 220Z" fill="url(#g-wood)"/>
+      <path d="M110 120Q112 90 136 70L138 72Q116 92 114 122Z" fill="#C8986A" opacity=".4"/>
+    </g>
+    <g class="s-part">
+      <path d="M70 172Q70 150 92 150H96Q118 150 118 172V282H70Z" fill="url(#g-wood)"/>
+      <path d="M282 172Q282 150 304 150H308Q330 150 330 172V282H282Z" fill="url(#g-wood)"/>
+    </g>
+    <g class="s-part">
+      <path d="M66 272H334V292Q334 298 328 298H72Q66 298 66 292Z" fill="#6B4226"/>
+      <path d="M74 276H326V279H74Z" fill="#C8986A" opacity=".4"/>
+    </g>
+    <g class="s-part">
+      <path d="M92 298H110L96 358H86Z" fill="#6B4226"/>
+      <path d="M290 298H308L314 358H304Z" fill="#6B4226"/>
+    </g>
+  </g>
+
+  <!-- upholstery (plum) -->
+  <g class="s-uph">
+    <g class="s-cushion s-back">
+      <path d="M122 110Q122 76 156 76H244Q278 76 278 110V210Q278 222 266 222H134Q122 222 122 210Z" fill="url(#g-plum)"/>
+      <path d="M132 112Q132 86 158 86H242Q262 86 266 100Q232 92 160 100Q136 104 132 126Z" fill="#fff" opacity=".14"/>
+      <g fill="#141114" opacity=".22">
+        <circle cx="165" cy="128" r="4"/><circle cx="200" cy="128" r="4"/><circle cx="235" cy="128" r="4"/>
+        <circle cx="182" cy="168" r="4"/><circle cx="218" cy="168" r="4"/>
+      </g>
+    </g>
+    <g class="s-cushion s-seat">
+      <path d="M112 224Q112 206 130 206H270Q288 206 288 224V250Q288 262 276 262H124Q112 262 112 250Z" fill="url(#g-plum)"/>
+      <path d="M124 214H276Q282 214 282 220H118Q118 214 124 214Z" fill="#fff" opacity=".16"/>
+    </g>
+    <g class="s-cushion s-arms">
+      <path d="M64 168Q64 142 90 142H98Q124 142 124 168V186H64Z" fill="url(#g-plum)"/>
+      <path d="M276 168Q276 142 302 142H310Q336 142 336 168V186H276Z" fill="url(#g-plum)"/>
+    </g>
+  </g>
+
+  <!-- fabric swatches (upholstery step only) -->
+  <g class="s-swatches" opacity="0">
+    <g class="s-swatch"><rect x="26" y="40" width="40" height="66" rx="8" fill="#C8986A"/></g>
+    <g class="s-swatch"><rect x="26" y="40" width="40" height="66" rx="8" fill="#6B4226"/></g>
+    <g class="s-swatch s-swatch-pick">
+      <rect x="26" y="40" width="40" height="66" rx="8" fill="#5B2A86"/>
+      <rect class="s-pick" x="21" y="35" width="50" height="76" rx="12" fill="none" stroke="#5B2A86" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- lamp light, drawn over the chair so it reads as light falling on it -->
+  <path class="s-light" d="M316 114H388L412 340H236Z" fill="url(#g-light)" opacity=".5"/>
+</svg>

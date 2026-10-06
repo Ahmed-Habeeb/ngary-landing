@@ -1,0 +1,96 @@
+<!-- Room-planner pieces as <symbol>s. Fabric and wood follow --seat / --wood /
+     --wood-dark, so the colour pickers re-upholster every piece at once. -->
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="d-sofa" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <rect x="30" y="56" width="180" height="52" rx="14" style="fill:var(--seat,#5B2A86)"/>
+  <rect x="40" y="64" width="76" height="40" rx="10" style="fill:color-mix(in oklab,var(--seat,#5B2A86) 82%,white)"/><rect x="124" y="64" width="76" height="40" rx="10" style="fill:color-mix(in oklab,var(--seat,#5B2A86) 82%,white)"/>
+  <rect x="22" y="96" width="196" height="30" rx="10" style="fill:color-mix(in oklab,var(--seat,#5B2A86) 78%,black)"/>
+  <rect x="14" y="78" width="30" height="48" rx="11" style="fill:color-mix(in oklab,var(--seat,#5B2A86) 78%,black)"/><rect x="196" y="78" width="30" height="48" rx="11" style="fill:color-mix(in oklab,var(--seat,#5B2A86) 78%,black)"/>
+  <path d="M28 126h9l-2 15h-5zM203 126h9l-2 15h-5z" style="fill:var(--wood,#6B4226)"/></symbol>
+    <symbol id="d-coffee" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <path d="M58 100l-6 40h6l10-40zM182 100l6 40h-6l-10-40zM92 104l-2 32h5l4-32zM148 104l2 32h-5l-4-32z" style="fill:var(--wood,#6B4226)"/>
+  <ellipse cx="120" cy="96" rx="88" ry="16" fill="#A87A4F"/><ellipse cx="120" cy="92" rx="88" ry="16" fill="#C8986A"/>
+  <path d="M104 80Q102 62 112 54Q122 62 120 80Z" fill="#B79AD6"/><rect x="100" y="78" width="24" height="8" rx="3" fill="#FAF6F0"/>
+  <rect x="138" y="80" width="34" height="6" rx="1.5" style="fill:var(--seat,#5B2A86)"/><rect x="141" y="75" width="28" height="5" rx="1.5" fill="#FAF6F0"/></symbol>
+    <symbol id="d-bed" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <path d="M36 52Q36 34 54 34H186Q204 34 204 52V112H36Z" style="fill:var(--seat,#5B2A86)"/>
+  <g fill="#141114" opacity=".22"><circle cx="80" cy="56" r="3"/><circle cx="120" cy="56" r="3"/><circle cx="160" cy="56" r="3"/></g>
+  <rect x="56" y="74" width="54" height="22" rx="10" fill="#FAF6F0"/><rect x="130" y="74" width="54" height="22" rx="10" fill="#FAF6F0"/>
+  <rect x="24" y="92" width="192" height="40" rx="8" fill="#F3EADF"/><rect x="24" y="104" width="192" height="28" rx="8" fill="#B79AD6"/>
+  <path d="M30 132h9l-1 9h-7zM201 132h9l-1 9h-7z" style="fill:var(--wood,#6B4226)"/></symbol>
+    <symbol id="d-wardrobe" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <rect x="66" y="10" width="108" height="124" rx="6" style="fill:var(--wood,#6B4226)"/>
+  <rect x="62" y="8" width="116" height="8" rx="3" style="fill:var(--wood-dark,#4A2C18)"/>
+  <rect x="73" y="22" width="44" height="104" rx="3" style="fill:color-mix(in oklab,var(--wood,#6B4226) 85%,white)"/><rect x="123" y="22" width="44" height="104" rx="3" style="fill:color-mix(in oklab,var(--wood,#6B4226) 85%,white)"/>
+  <rect x="110" y="66" width="3" height="20" rx="1.5" fill="#C8986A"/><rect x="127" y="66" width="3" height="20" rx="1.5" fill="#C8986A"/>
+  <path d="M74 134h8l-1 7h-6zM158 134h8l-1 7h-6z" style="fill:var(--wood-dark,#4A2C18)"/></symbol>
+    <symbol id="d-dresser" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <path d="M86 62V28Q86 12 102 12H138Q154 12 154 28V62" fill="#F3EADF" stroke="#C8986A" stroke-width="4"/>
+  <rect x="50" y="62" width="140" height="72" rx="6" style="fill:var(--wood,#6B4226)"/>
+  <g style="fill:color-mix(in oklab,var(--wood,#6B4226) 85%,white)"><rect x="58" y="70" width="124" height="18" rx="3"/><rect x="58" y="92" width="124" height="18" rx="3"/><rect x="58" y="114" width="124" height="14" rx="3"/></g>
+  <g fill="#C8986A"><circle cx="120" cy="79" r="3"/><circle cx="120" cy="101" r="3"/><circle cx="120" cy="121" r="3"/></g>
+  <path d="M58 134h8l-1 7h-6zM174 134h8l-1 7h-6z" style="fill:var(--wood-dark,#4A2C18)"/></symbol>
+    <symbol id="d-dining" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <use class="chair" href="#chair" x="-6" y="34" width="110" height="110"/>
+  <use class="chair" href="#chair" x="136" y="34" width="110" height="110"/>
+  <rect x="44" y="84" width="152" height="10" rx="2" fill="#C8986A"/><rect x="44" y="94" width="152" height="5" fill="#A87A4F"/>
+  <path d="M58 99h9l-2 42h-5zM173 99h9l-2 42h-5z" style="fill:var(--wood,#6B4226)"/>
+  <path d="M112 84Q110 66 120 58Q130 66 128 84Z" fill="#B79AD6"/></symbol>
+    <symbol id="d-sideboard" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <rect x="152" y="36" width="40" height="34" rx="3" fill="#F3EADF" style="stroke:var(--wood,#6B4226)" stroke-width="3"/><path d="M160 62l10-12 8 8 6-5 4 9z" fill="#B79AD6"/>
+  <path d="M60 70Q58 50 68 42Q78 50 76 70Z" style="fill:var(--seat,#5B2A86)"/>
+  <rect x="26" y="70" width="188" height="60" rx="6" style="fill:var(--wood,#6B4226)"/>
+  <g style="fill:color-mix(in oklab,var(--wood,#6B4226) 85%,white)"><rect x="34" y="78" width="54" height="44" rx="3"/><rect x="93" y="78" width="54" height="44" rx="3"/><rect x="152" y="78" width="54" height="44" rx="3"/></g>
+  <g fill="#C8986A"><rect x="82" y="94" width="3" height="12" rx="1.5"/><rect x="141" y="94" width="3" height="12" rx="1.5"/><rect x="155" y="94" width="3" height="12" rx="1.5"/></g>
+  <path d="M36 130h8l-1 11h-6zM196 130h8l-1 11h-6z" style="fill:var(--wood-dark,#4A2C18)"/></symbol>
+    <symbol id="d-desk" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <path d="M62 74L76 44L98 36" stroke="#C8986A" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M92 28l22 6-8 16z" fill="#C8986A"/>
+  <rect x="126" y="62" width="42" height="10" rx="2" fill="#B79AD6"/><rect x="130" y="54" width="34" height="8" rx="2" fill="#FAF6F0"/>
+  <rect x="30" y="72" width="180" height="10" rx="2" style="fill:color-mix(in oklab,var(--wood,#6B4226) 85%,white)"/>
+  <path d="M40 82h9l-2 59h-5z" style="fill:var(--wood,#6B4226)"/>
+  <rect x="146" y="82" width="58" height="56" rx="3" style="fill:var(--wood-dark,#4A2C18)"/>
+  <path d="M154 100h42M154 120h42" stroke="#C8986A" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="d-officechair" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <path d="M88 30Q88 16 102 16H138Q152 16 152 30V82H88Z" style="fill:var(--seat,#5B2A86)"/>
+  <path d="M96 30Q96 24 104 24H136Q144 24 144 30" fill="none" stroke="#FAF6F0" stroke-width="2" opacity=".35"/>
+  <rect x="78" y="84" width="84" height="18" rx="9" style="fill:color-mix(in oklab,var(--seat,#5B2A86) 78%,black)"/>
+  <rect x="70" y="70" width="12" height="26" rx="6" fill="#2B2024"/><rect x="158" y="70" width="12" height="26" rx="6" fill="#2B2024"/>
+  <rect x="117" y="102" width="6" height="22" fill="#2B2024"/>
+  <path d="M120 124L78 132M120 124L162 132M120 124L104 138M120 124L136 138" stroke="#2B2024" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#141114"><circle cx="76" cy="135" r="5"/><circle cx="164" cy="135" r="5"/><circle cx="102" cy="140" r="5"/><circle cx="138" cy="140" r="5"/></g></symbol>
+    <symbol id="d-shelf" viewBox="0 0 240 160"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <rect x="60" y="10" width="120" height="128" rx="4" style="fill:var(--wood,#6B4226)"/>
+  <rect x="68" y="18" width="104" height="112" style="fill:var(--wood-dark,#4A2C18)"/>
+  <g style="fill:var(--wood,#6B4226)"><rect x="68" y="52" width="104" height="5"/><rect x="68" y="90" width="104" height="5"/></g>
+  <g><rect x="74" y="26" width="10" height="26" fill="#B79AD6"/><rect x="86" y="30" width="8" height="22" fill="#C8986A"/><rect x="96" y="24" width="12" height="28" style="fill:var(--seat,#5B2A86)"/><rect x="130" y="34" width="30" height="18" rx="8" fill="#F3EADF"/>
+     <rect x="74" y="66" width="34" height="24" rx="3" fill="#C8986A"/><rect x="120" y="62" width="9" height="28" fill="#FAF6F0"/><rect x="131" y="66" width="9" height="24" style="fill:var(--seat,#5B2A86)"/><rect x="142" y="60" width="11" height="30" fill="#B79AD6"/>
+     <rect x="76" y="100" width="12" height="30" style="fill:var(--seat,#5B2A86)"/><rect x="90" y="104" width="10" height="26" fill="#FAF6F0"/><path d="M140 130Q138 110 150 102Q162 110 160 130Z" fill="#C8986A"/></g></symbol>
+    <symbol id="d-rug" viewBox="0 0 400 60">
+      <path d="M40 4H360L396 56H4Z" style="fill:color-mix(in oklab,var(--seat,#5B2A86) 82%,white)"/>
+      <path d="M56 12H344L372 48H28Z" fill="none" stroke="#FAF6F0" stroke-width="3" opacity=".7"/>
+      <path d="M90 24H310L322 38H78Z" fill="#FAF6F0" opacity=".35"/>
+    </symbol>
+    <symbol id="d-lamp" viewBox="0 0 60 200">
+      <ellipse cx="30" cy="196" rx="16" ry="4" fill="#141114"/>
+      <path d="M29 40V196" stroke="#141114" stroke-width="3"/>
+      <path d="M8 10H52L58 42H2Z" fill="#C8986A"/>
+      <path d="M2 42H58L72 140H-12Z" fill="#FFE9C7" opacity=".28"/>
+    </symbol>
+    <symbol id="d-plant" viewBox="0 0 80 160">
+      <g stroke="#B58357" stroke-width="2" fill="none" stroke-linecap="round"><path d="M40 112Q34 60 18 20"/><path d="M40 112Q42 50 44 8"/><path d="M40 112Q50 64 66 28"/></g>
+      <g fill="#E4C9A5"><ellipse cx="18" cy="22" rx="7" ry="22" transform="rotate(-14 18 22)"/><ellipse cx="44" cy="12" rx="7" ry="24"/><ellipse cx="65" cy="30" rx="7" ry="20" transform="rotate(16 65 30)"/></g>
+      <path d="M22 110Q14 140 26 158H54Q66 140 58 110Z" style="fill:var(--wood,#6B4226)"/>
+    </symbol>
+    <symbol id="d-art" viewBox="0 0 120 90">
+      <rect x="3" y="3" width="114" height="84" rx="3" fill="#FAF6F0" style="stroke:var(--wood,#6B4226)" stroke-width="5"/>
+      <path d="M16 74L46 36L66 56L80 44L104 74Z" style="fill:color-mix(in oklab,var(--seat,#5B2A86) 82%,white)"/>
+      <circle cx="88" cy="26" r="9" fill="#C8986A"/>
+    </symbol>
+    <symbol id="d-pendant" viewBox="0 0 60 120">
+      <path d="M30 0V70" stroke="#141114" stroke-width="2"/>
+      <path d="M6 100Q6 70 30 70Q54 70 54 100Z" fill="#C8986A"/>
+      <ellipse cx="30" cy="102" rx="22" ry="6" fill="#FFE9C7" opacity=".6"/>
+    </symbol>
+  </defs>
+</svg>

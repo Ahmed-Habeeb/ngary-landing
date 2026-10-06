@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="{{@lang}}" dir="{{@dir}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{meta.title}}</title>
+  <meta name="description" content="{{meta.description}}">
+  <link rel="canonical" href="{{@site}}/{{@lang}}/">
+  <link rel="alternate" hreflang="ar" href="{{@site}}/ar/">
+  <link rel="alternate" hreflang="en" href="{{@site}}/en/">
+  <link rel="alternate" hreflang="x-default" href="{{@site}}/">
+  <meta name="theme-color" content="#22122E">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{brand.name}}">
+  <meta property="og:title" content="{{meta.title}}">
+  <meta property="og:description" content="{{meta.description}}">
+  <meta property="og:url" content="{{@site}}/{{@lang}}/">
+  <meta property="og:image" content="{{@site}}{{meta.ogImage}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{meta.ogImageAlt}}">
+  <meta property="og:locale" content="{{meta.ogLocale}}">
+  <meta property="og:locale:alternate" content="{{meta.ogLocaleAlt}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FurnitureStore",
+      "name": "{{brand.name}}",
+      "alternateName": "{{brand.alt}}",
+      "url": "{{@site}}/{{@lang}}/",
+      "telephone": "{{phone.e164}}",
+      "hasMap": "{{visit.mapUrl}}",
+      "logo": "{{@site}}/brand/logo-512.png",
+      "image": "{{@site}}/brand/logo-512.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{visit.address}}",
+        "addressLocality": "{{visit.locality}}",
+        "addressRegion": "{{visit.region}}",
+        "addressCountry": "EG"
+      }
+    }
+  </script>
+
+  <script>
+    // The only inline script. Runs before first paint:
+    //  - html.js        → enables JS-only UI (step meter). Never hides content.
+    //  - html.has-intro → shows the brand intro cover (first visit per session,
+    //                     never under reduced motion). CSS lifts it at 1.6s even
+    //                     if main.js never runs.
+    (function (h) {
+      h.classList.add('js');
+      try {
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !sessionStorage.getItem('nagary:intro')) {
+          sessionStorage.setItem('nagary:intro', '1');
+          h.classList.add('has-intro');
+        }
+      } catch (e) {}
+    })(document.documentElement);
+  </script>
+  <!-- Linked (not imported from JS) so the page is styled with JS disabled. -->
+  <link rel="stylesheet" href="/src/css/main.css">
+  <script type="module" src="/src/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">{{a11y.skip}}</a>
+  <!-- include:partials/sprite.svg -->
+  <!-- include:partials/designer-sprite.svg -->
+
+  <div class="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <div class="intro-badge">
+        <svg class="intro-ring" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><circle class="intro-line" pathLength="1" cx="100" cy="100" r="96" fill="none" stroke="#C8986A" stroke-width="3" stroke-linecap="round" transform="rotate(-90 100 100)"/></svg>
+        <picture class="intro-logo"><source type="image/avif" srcset="/brand/logo-320.avif 1x, /brand/logo-640.avif 2x"><img src="/brand/logo-320.webp" srcset="/brand/logo-320.webp 1x, /brand/logo-640.webp 2x" width="320" height="320" alt="" fetchpriority="high" decoding="async"></picture>
+      </div>
+      <p class="intro-word">{{brand.name}}</p>
+    </div>
+  </div>
+
+  <header class="site-header" data-header>
+    <div class="header-bg" aria-hidden="true"></div>
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#top" aria-label="{{brand.home}}">
+        <picture class="brand-logo"><source type="image/avif" srcset="/brand/logo-96.avif 1x, /brand/logo-192.avif 2x"><img src="/brand/logo-96.webp" srcset="/brand/logo-96.webp 1x, /brand/logo-192.webp 2x" width="96" height="96" alt="" fetchpriority="high" decoding="async"></picture>
+        <span class="wordmark-main">{{brand.name}}</span>
+        <span class="wordmark-alt" lang="{{@other}}">{{brand.alt}}</span>
+      </a>
+      <nav class="site-nav" aria-label="{{a11y.nav}}">
+        <a href="#story">{{nav.story}}</a>
+        <a href="#rooms">{{nav.rooms}}</a>
+        <a href="#pieces">{{nav.pieces}}</a>
+        <a href="#design-your-room">{{nav.design}}</a>
+        <a href="#visit">{{nav.visit}}</a>
+        <a href="#faq">{{nav.faq}}</a>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-link" href="/{{@other}}/" hreflang="{{@other}}" lang="{{@other}}" aria-label="{{meta.otherLabel}}">{{meta.otherName}}</a>
+        <a class="btn btn-sm header-call" href="{{phone.href}}">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>
+          <span>{{nav.call}}</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ───────────── HERO ───────────── -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy" data-hero-copy>
+          <p class="eyebrow" data-hero-fade>{{hero.eyebrow}}</p>
+          <h1 class="hero-title" id="hero-title">{{hero.title_html}}</h1>
+          <p class="hero-sub" data-hero-fade>{{hero.sub}}</p>
+          <div class="hero-actions">
+            <div class="cta-load" data-hero-cta>
+              <a class="btn btn-lg" href="{{phone.href}}" data-magnetic>
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>
+                <span>{{hero.cta}}</span>
+              </a>
+            </div>
+            <div class="cta-load" data-hero-cta>
+              <a class="btn btn-ghost btn-lg" href="#rooms">{{hero.secondary}}</a>
+            </div>
+          </div>
+          <p class="hero-note" data-hero-fade>{{hero.note}} <a href="#visit">{{hero.noteLink}}</a></p>
+        </div>
+
+        <div class="hero-visual" role="img" aria-label="{{hero.art}}">
+          <div class="hero-arch" aria-hidden="true"></div>
+          <div class="hero-swatch hs-1" data-swatch aria-hidden="true"><span></span></div>
+          <div class="hero-swatch hs-2" data-swatch aria-hidden="true"><span></span></div>
+          <div class="hero-swatch hs-3" data-swatch aria-hidden="true"><span></span></div>
+          <!-- One wrapper per motion (rule 3): load-in › idle float › pointer tilt › scroll pose -->
+          <div class="chair-load">
+            <div class="chair-float">
+              <div class="chair-tilt">
+                <div class="chair-scroll">
+                  <svg class="hero-chair" viewBox="0 0 400 400" width="400" height="400" aria-hidden="true" focusable="false">
+                    <use class="chair chair--hero" href="#chair"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── STORY (pinned, scrubbed) ───────────── -->
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div class="wrap story-head">
+        <p class="eyebrow" data-reveal>{{story.eyebrow}}</p>
+        <h2 class="h2" id="story-title" data-reveal>{{story.title}}</h2>
+      </div>
+      <div class="story-pin" data-story-pin>
+        <div class="wrap story-grid">
+          <div class="story-stage" role="img" aria-label="{{story.art}}">
+            <div class="stage-night" aria-hidden="true"></div>
+            <!-- include:partials/chair-story.svg -->
+            <div class="story-meter" aria-hidden="true">
+              <span class="meter-text">{{story.step}} <b data-story-count>01</b> {{story.of}} 04</span>
+              <span class="meter-bar"><span class="meter-fill" data-story-fill></span></span>
+            </div>
+          </div>
+          <ol class="story-captions">
+            <li class="story-cap" data-step="sketch">
+              <span class="cap-num" aria-hidden="true">01</span>
+              <h3 class="h3">{{story.s1.title}}</h3>
+              <p>{{story.s1.body}}</p>
+            </li>
+            <li class="story-cap" data-step="frame">
+              <span class="cap-num" aria-hidden="true">02</span>
+              <h3 class="h3">{{story.s2.title}}</h3>
+              <p>{{story.s2.body}}</p>
+            </li>
+            <li class="story-cap" data-step="upholster">
+              <span class="cap-num" aria-hidden="true">03</span>
+              <h3 class="h3">{{story.s3.title}}</h3>
+              <p>{{story.s3.body}}</p>
+            </li>
+            <li class="story-cap" data-step="home">
+              <span class="cap-num" aria-hidden="true">04</span>
+              <h3 class="h3">{{story.s4.title}}</h3>
+              <p>{{story.s4.body}}</p>
+              <p class="cap-cta">
+                <a class="btn" href="{{phone.href}}">
+                  <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>
+                  <span>{{story.cta}}</span>
+                </a>
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── MARQUEE ───────────── -->
+    <section class="marquee" aria-label="{{marquee.label}}">
+      <div class="marquee-skew" data-marquee-skew>
+        <div class="marquee-track" data-marquee-track>
+          <p class="marquee-row">
+            <span>{{marquee.w1}}</span><span class="m-dot" aria-hidden="true"></span>
+            <span>{{marquee.w2}}</span><span class="m-dot" aria-hidden="true"></span>
+            <span>{{marquee.w3}}</span><span class="m-dot" aria-hidden="true"></span>
+            <span>{{marquee.w4}}</span><span class="m-dot" aria-hidden="true"></span>
+            <span>{{marquee.w5}}</span><span class="m-dot" aria-hidden="true"></span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── WHY NAGARY (bento) ───────────── -->
+    <section class="why" id="why" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="why-head">
+          <p class="eyebrow" data-reveal>{{why.eyebrow}}</p>
+          <h2 class="h2" id="why-title" data-reveal>{{why.title}}</h2>
+        </div>
+        <ul class="why-grid" role="list">
+          <li class="why-tile why--workshop">
+            <div class="why-art"><div class="why-photo" data-why-photo><!-- img:why-workshop sizes=why alt=why.workshop.photo --></div><span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span></div>
+            <div class="why-copy"><h3 class="h3">{{why.workshop.title}}</h3><p>{{why.workshop.body}}</p></div>
+          </li>
+          <li class="why-tile why--measure">
+            <div class="why-art"><div class="why-photo" data-why-photo><!-- img:why-measure sizes=why alt=why.measure.photo --></div><span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span></div>
+            <div class="why-copy"><h3 class="h3">{{why.measure.title}}</h3><p>{{why.measure.body}}</p></div>
+          </li>
+          <li class="why-tile why--showroom">
+            <div class="why-art"><div class="why-photo" data-why-photo><!-- img:why-showroom sizes=why alt=why.showroom.photo --></div><span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span></div>
+            <div class="why-copy"><h3 class="h3">{{why.showroom.title}}</h3><p>{{why.showroom.body}}</p></div>
+          </li>
+          <li class="why-tile why--delivery">
+            <div class="why-art"><div class="why-photo" data-why-photo><!-- img:why-delivery sizes=why alt=why.delivery.photo --></div><span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span></div>
+            <div class="why-copy"><h3 class="h3">{{why.delivery.title}}</h3><p>{{why.delivery.body}}</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ───────────── ROOMS (stacking sticky cards) ───────────── -->
+    <section class="rooms" id="rooms" aria-labelledby="rooms-title">
+      <div class="wrap rooms-head">
+        <p class="eyebrow" data-reveal>{{rooms.eyebrow}}</p>
+        <h2 class="h2" id="rooms-title" data-reveal>{{rooms.title}}</h2>
+        <p class="lede" data-reveal>{{rooms.intro}}</p>
+      </div>
+      <!-- Sticky cards share one parent so they stack. The 0-height .room-mark
+           sentinels never stick, so ScrollTrigger always measures a card's
+           natural position from them, even on a refresh mid-scroll (rule 6). -->
+      <div class="wrap room-stack" role="list">
+        <span class="room-mark" aria-hidden="true"></span>
+        <div class="room-card room--living" role="listitem" style="--i:0">
+          <article class="room-inner" aria-labelledby="room-living">
+            <div class="room-copy">
+              <span class="room-num" aria-hidden="true">01</span>
+              <h3 class="h3" id="room-living">{{rooms.living.title}}</h3>
+              <p>{{rooms.living.body}}</p>
+              <a class="room-link" href="{{phone.href}}">{{rooms.living.link}}<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+            </div>
+            <div class="room-art"><div class="room-photo"><div class="room-art-par" data-room-art><!-- img:room-living sizes=room alt=rooms.living.photo --></div><span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span></div></div>
+            <div class="card-dim" aria-hidden="true"></div>
+          </article>
+        </div>
+        <span class="room-mark" aria-hidden="true"></span>
+        <div class="room-card room--bedroom" role="listitem" style="--i:1">
+          <article class="room-inner" aria-labelledby="room-bedroom">
+            <div class="room-copy">
+              <span class="room-num" aria-hidden="true">02</span>
+              <h3 class="h3" id="room-bedroom">{{rooms.bedroom.title}}</h3>
+              <p>{{rooms.bedroom.body}}</p>
+              <a class="room-link" href="{{phone.href}}">{{rooms.bedroom.link}}<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+            </div>
+            <div class="room-art"><div class="room-photo"><div class="room-art-par" data-room-art><!-- img:room-bedroom sizes=room alt=rooms.bedroom.photo --></div><span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span></div></div>
+            <div class="card-dim" aria-hidden="true"></div>
+          </article>
+        </div>
+        <span class="room-mark" aria-hidden="true"></span>
+        <div class="room-card room--dining" role="listitem" style="--i:2">
+          <article class="room-inner" aria-labelledby="room-dining">
+            <div class="room-copy">
+              <span class="room-num" aria-hidden="true">03</span>
+              <h3 class="h3" id="room-dining">{{rooms.dining.title}}</h3>
+              <p>{{rooms.dining.body}}</p>
+              <a class="room-link" href="{{phone.href}}">{{rooms.dining.link}}<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+            </div>
+            <div class="room-art"><div class="room-photo"><div class="room-art-par" data-room-art><!-- img:room-dining sizes=room alt=rooms.dining.photo --></div><span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span></div></div>
+            <div class="card-dim" aria-hidden="true"></div>
+          </article>
+        </div>
+        <span class="room-mark" aria-hidden="true"></span>
+        <div class="room-card room--office" role="listitem" style="--i:3">
+          <article class="room-inner" aria-labelledby="room-office">
+            <div class="room-copy">
+              <span class="room-num" aria-hidden="true">04</span>
+              <h3 class="h3" id="room-office">{{rooms.office.title}}</h3>
+              <p>{{rooms.office.body}}</p>
+              <a class="room-link" href="{{phone.href}}">{{rooms.office.link}}<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+            </div>
+            <div class="room-art"><div class="room-photo"><div class="room-art-par" data-room-art><!-- img:room-office sizes=room alt=rooms.office.photo --></div><span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span></div></div>
+            <div class="card-dim" aria-hidden="true"></div>
+          </article>
+        </div>
+        <span class="room-mark" aria-hidden="true"></span>
+        <div class="room-card room--custom" role="listitem" style="--i:4">
+          <article class="room-inner" aria-labelledby="room-custom">
+            <div class="room-copy">
+              <span class="room-num" aria-hidden="true">05</span>
+              <h3 class="h3" id="room-custom">{{rooms.custom.title}}</h3>
+              <p>{{rooms.custom.body}}</p>
+              <a class="room-link" href="{{phone.href}}">{{rooms.custom.link}}<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+            </div>
+            <div class="room-art"><div class="room-photo"><div class="room-art-par" data-room-art><!-- img:room-custom sizes=room alt=rooms.custom.photo --></div><span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span></div></div>
+            <div class="card-dim" aria-hidden="true"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── PIECES (horizontal pinned gallery) ───────────── -->
+    <section class="pieces" id="pieces" aria-labelledby="pieces-title">
+      <div class="pieces-pin" data-pieces-pin>
+        <div class="wrap pieces-head">
+          <div>
+            <p class="eyebrow" data-reveal>{{pieces.eyebrow}}</p>
+            <h2 class="h2" id="pieces-title" data-reveal>{{pieces.title}}</h2>
+            <p class="lede" data-reveal>{{pieces.intro}}</p>
+          </div>
+          <div class="pieces-meta">
+            <p class="pieces-note" data-placeholder="product-photos">{{pieces.note}}</p>
+            <div class="pieces-progress" aria-hidden="true"><span class="pieces-hint">{{pieces.hint}}</span><span class="meter-bar"><span class="meter-fill" data-pieces-fill></span></span></div>
+          </div>
+        </div>
+        <div class="pieces-viewport" data-pieces-viewport>
+          <ul class="pieces-track" data-pieces-track role="list">
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-sofa sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_living}}</p>
+            <h3 class="piece-name">{{pieces.sofa}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.sofa}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-armchair sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_living}}</p>
+            <h3 class="piece-name">{{pieces.armchair}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.armchair}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-coffee sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_living}}</p>
+            <h3 class="piece-name">{{pieces.coffee}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.coffee}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-bed sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_bedroom}}</p>
+            <h3 class="piece-name">{{pieces.bed}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.bed}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-wardrobe sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_bedroom}}</p>
+            <h3 class="piece-name">{{pieces.wardrobe}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.wardrobe}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-dresser sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_bedroom}}</p>
+            <h3 class="piece-name">{{pieces.dresser}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.dresser}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-dining sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_dining}}</p>
+            <h3 class="piece-name">{{pieces.dining}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.dining}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-sideboard sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_dining}}</p>
+            <h3 class="piece-name">{{pieces.sideboard}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.sideboard}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-desk sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_office}}</p>
+            <h3 class="piece-name">{{pieces.desk}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.desk}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-officechair sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_office}}</p>
+            <h3 class="piece-name">{{pieces.officechair}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.officechair}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          <li class="piece-card">
+            <div class="piece-art"><!-- img:piece-storage sizes=piece --></div>
+            <p class="piece-room">{{pieces.room_office}}</p>
+            <h3 class="piece-name">{{pieces.storage}}</h3>
+            <a class="piece-link" href="{{phone.href}}">{{pieces.ask}}<span class="sr-only">: {{pieces.storage}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── DESIGN YOUR ROOM (planner) ─────────────
+         Colours: radios + CSS :has() (work without JS). Adding, dragging and
+         removing pieces: designer.js. The static items below are the no-JS
+         default (the living-room preset); JS re-renders them from state. -->
+    <section class="designer" id="design-your-room" aria-labelledby="designer-title"
+      data-pattern="{{designer.pattern}}" data-item-aria="{{designer.itemAria}}" data-none="{{designer.none}}" data-copied="{{designer.copied}}">
+      <div class="wrap">
+        <div class="designer-head">
+          <p class="eyebrow" data-reveal>{{designer.eyebrow}}</p>
+          <h2 class="h2" id="designer-title" data-reveal>{{designer.title}}</h2>
+          <p class="lede" data-reveal>{{designer.body}}</p>
+        </div>
+        <div class="designer-grid">
+          <div class="designer-stage-wrap">
+            <div class="d-stage" data-d-stage role="group" aria-label="{{designer.stageLabel}}">
+              <div class="d-wall" aria-hidden="true"><span class="d-window"></span></div>
+              <div class="d-floor" aria-hidden="true"></div>
+              <div class="d-items" data-d-items>
+              <div class="d-item" data-type="rug" style="--x:0.22;--w:54%;--b:3%;--ar:6.6667;--z:1"><span class="d-art"><svg viewBox="0 0 400 60" aria-hidden="true" focusable="false"><use href="#d-rug"/></svg></span></div>
+              <div class="d-item" data-type="art" style="--x:0.42;--w:13%;--b:50%;--ar:1.3333;--z:2"><span class="d-art"><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false"><use href="#d-art"/></svg></span></div>
+              <div class="d-item" data-type="sofa" style="--x:0.3;--w:36%;--b:12%;--ar:1.5000;--z:4"><span class="d-art"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-sofa"/></svg></span></div>
+              <div class="d-item" data-type="lamp" style="--x:0.8;--w:7%;--b:12%;--ar:0.3000;--z:4"><span class="d-art"><svg viewBox="0 0 60 200" aria-hidden="true" focusable="false"><use href="#d-lamp"/></svg></span></div>
+              <div class="d-item" data-type="armchair" style="--x:0.06;--w:17%;--b:5%;--ar:1.0000;--z:5"><span class="d-art"><svg viewBox="0 0 400 400" aria-hidden="true" focusable="false"><use href="#chair"/></svg></span></div>
+              <div class="d-item" data-type="coffee" style="--x:0.4;--w:20%;--b:3%;--ar:1.5000;--z:5"><span class="d-art"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-coffee"/></svg></span></div>
+              <div class="d-item" data-type="plant" style="--x:0.88;--w:8%;--b:5%;--ar:0.5000;--z:5"><span class="d-art"><svg viewBox="0 0 80 160" aria-hidden="true" focusable="false"><use href="#d-plant"/></svg></span></div>
+              </div>
+            </div>
+            <p class="d-hint" data-js-only>{{designer.hint}}</p>
+            <p class="d-hint" data-nojs-only>{{designer.noJs}}</p>
+          </div>
+          <div class="designer-controls">
+            <div class="d-group" data-js-only role="group" aria-labelledby="d-room-label">
+              <p class="d-label" id="d-room-label">{{designer.roomLabel}}</p>
+              <div class="d-row">
+                  <button type="button" class="d-preset" data-preset="living" aria-pressed="true">{{pieces.room_living}}</button>
+                  <button type="button" class="d-preset" data-preset="bedroom" aria-pressed="false">{{pieces.room_bedroom}}</button>
+                  <button type="button" class="d-preset" data-preset="dining" aria-pressed="false">{{pieces.room_dining}}</button>
+                  <button type="button" class="d-preset" data-preset="office" aria-pressed="false">{{pieces.room_office}}</button>
+              </div>
+            </div>
+            <fieldset class="sw-group">
+              <legend>{{designer.wallLabel}}</legend>
+              <div class="sw-row">
+                  <input class="sw-input" type="radio" name="d-wall" id="d-wall-white" value="white">
+                  <label class="sw" for="d-wall-white"><span class="sw-dot" style="--c:#F4EEE6"></span><span class="sw-name">{{designer.walls.white}}</span></label>
+                  <input class="sw-input" type="radio" name="d-wall" id="d-wall-linen" value="linen" checked>
+                  <label class="sw" for="d-wall-linen"><span class="sw-dot" style="--c:#E6D7C3"></span><span class="sw-name">{{designer.walls.linen}}</span></label>
+                  <input class="sw-input" type="radio" name="d-wall" id="d-wall-lilac" value="lilac">
+                  <label class="sw" for="d-wall-lilac"><span class="sw-dot" style="--c:#DCCDEB"></span><span class="sw-name">{{designer.walls.lilac}}</span></label>
+                  <input class="sw-input" type="radio" name="d-wall" id="d-wall-plum" value="plum">
+                  <label class="sw" for="d-wall-plum"><span class="sw-dot" style="--c:#3B2350"></span><span class="sw-name">{{designer.walls.plum}}</span></label>
+                  <input class="sw-input" type="radio" name="d-wall" id="d-wall-charcoal" value="charcoal">
+                  <label class="sw" for="d-wall-charcoal"><span class="sw-dot" style="--c:#2E292C"></span><span class="sw-name">{{designer.walls.charcoal}}</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="sw-group">
+              <legend>{{designer.floorLabel}}</legend>
+              <div class="sw-row">
+                  <input class="sw-input" type="radio" name="d-floor" id="d-floor-oak" value="oak" checked>
+                  <label class="sw" for="d-floor-oak"><span class="sw-dot" style="--c:#C8986A"></span><span class="sw-name">{{designer.floors.oak}}</span></label>
+                  <input class="sw-input" type="radio" name="d-floor" id="d-floor-walnut" value="walnut">
+                  <label class="sw" for="d-floor-walnut"><span class="sw-dot" style="--c:#6B4226"></span><span class="sw-name">{{designer.floors.walnut}}</span></label>
+                  <input class="sw-input" type="radio" name="d-floor" id="d-floor-stone" value="stone">
+                  <label class="sw" for="d-floor-stone"><span class="sw-dot" style="--c:#D6CFC5"></span><span class="sw-name">{{designer.floors.stone}}</span></label>
+                  <input class="sw-input" type="radio" name="d-floor" id="d-floor-ebony" value="ebony">
+                  <label class="sw" for="d-floor-ebony"><span class="sw-dot" style="--c:#3A2E2A"></span><span class="sw-name">{{designer.floors.ebony}}</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="sw-group">
+              <legend>{{designer.seatLabel}}</legend>
+              <div class="sw-row">
+                  <input class="sw-input" type="radio" name="d-seat" id="d-seat-plum" value="plum" checked>
+                  <label class="sw" for="d-seat-plum"><span class="sw-dot" style="--c:#5B2A86"></span><span class="sw-name">{{config.seat.plum}}</span></label>
+                  <input class="sw-input" type="radio" name="d-seat" id="d-seat-lilac" value="lilac">
+                  <label class="sw" for="d-seat-lilac"><span class="sw-dot" style="--c:#B79AD6"></span><span class="sw-name">{{config.seat.lilac}}</span></label>
+                  <input class="sw-input" type="radio" name="d-seat" id="d-seat-linen" value="linen">
+                  <label class="sw" for="d-seat-linen"><span class="sw-dot" style="--c:#F3EADF"></span><span class="sw-name">{{config.seat.linen}}</span></label>
+                  <input class="sw-input" type="radio" name="d-seat" id="d-seat-caramel" value="caramel">
+                  <label class="sw" for="d-seat-caramel"><span class="sw-dot" style="--c:#C8986A"></span><span class="sw-name">{{config.seat.caramel}}</span></label>
+                  <input class="sw-input" type="radio" name="d-seat" id="d-seat-charcoal" value="charcoal">
+                  <label class="sw" for="d-seat-charcoal"><span class="sw-dot" style="--c:#3A3438"></span><span class="sw-name">{{config.seat.charcoal}}</span></label>
+                  <input class="sw-input" type="radio" name="d-seat" id="d-seat-cognac" value="cognac">
+                  <label class="sw" for="d-seat-cognac"><span class="sw-dot" style="--c:#8A5A35"></span><span class="sw-name">{{config.seat.cognac}}</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="sw-group">
+              <legend>{{designer.woodLabel}}</legend>
+              <div class="sw-row">
+                  <input class="sw-input" type="radio" name="d-wood" id="d-wood-walnut" value="walnut" checked>
+                  <label class="sw" for="d-wood-walnut"><span class="sw-dot" style="--c:#6B4226"></span><span class="sw-name">{{config.wood.walnut}}</span></label>
+                  <input class="sw-input" type="radio" name="d-wood" id="d-wood-oak" value="oak">
+                  <label class="sw" for="d-wood-oak"><span class="sw-dot" style="--c:#C8986A"></span><span class="sw-name">{{config.wood.oak}}</span></label>
+                  <input class="sw-input" type="radio" name="d-wood" id="d-wood-ebony" value="ebony">
+                  <label class="sw" for="d-wood-ebony"><span class="sw-dot" style="--c:#2B2024"></span><span class="sw-name">{{config.wood.ebony}}</span></label>
+              </div>
+            </fieldset>
+            <div class="d-group" data-js-only role="group" aria-labelledby="d-pieces-label">
+              <p class="d-label" id="d-pieces-label">{{designer.piecesLabel}}</p>
+              <div class="d-palette">
+                  <button type="button" class="d-toggle" data-item="rug" aria-pressed="false"><svg viewBox="0 0 400 60" aria-hidden="true" focusable="false"><use href="#d-rug"/></svg><span>{{designer.items.rug}}</span></button>
+                  <button type="button" class="d-toggle" data-item="art" aria-pressed="false"><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false"><use href="#d-art"/></svg><span>{{designer.items.art}}</span></button>
+                  <button type="button" class="d-toggle" data-item="pendant" aria-pressed="false"><svg viewBox="0 0 60 120" aria-hidden="true" focusable="false"><use href="#d-pendant"/></svg><span>{{designer.items.pendant}}</span></button>
+                  <button type="button" class="d-toggle" data-item="shelf" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-shelf"/></svg><span>{{designer.items.shelf}}</span></button>
+                  <button type="button" class="d-toggle" data-item="wardrobe" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-wardrobe"/></svg><span>{{designer.items.wardrobe}}</span></button>
+                  <button type="button" class="d-toggle" data-item="sideboard" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-sideboard"/></svg><span>{{designer.items.sideboard}}</span></button>
+                  <button type="button" class="d-toggle" data-item="dresser" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-dresser"/></svg><span>{{designer.items.dresser}}</span></button>
+                  <button type="button" class="d-toggle" data-item="bed" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-bed"/></svg><span>{{designer.items.bed}}</span></button>
+                  <button type="button" class="d-toggle" data-item="sofa" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-sofa"/></svg><span>{{designer.items.sofa}}</span></button>
+                  <button type="button" class="d-toggle" data-item="dining" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-dining"/></svg><span>{{designer.items.dining}}</span></button>
+                  <button type="button" class="d-toggle" data-item="desk" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-desk"/></svg><span>{{designer.items.desk}}</span></button>
+                  <button type="button" class="d-toggle" data-item="lamp" aria-pressed="false"><svg viewBox="0 0 60 200" aria-hidden="true" focusable="false"><use href="#d-lamp"/></svg><span>{{designer.items.lamp}}</span></button>
+                  <button type="button" class="d-toggle" data-item="armchair" aria-pressed="false"><svg viewBox="0 0 400 400" aria-hidden="true" focusable="false"><use href="#chair"/></svg><span>{{designer.items.armchair}}</span></button>
+                  <button type="button" class="d-toggle" data-item="coffee" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-coffee"/></svg><span>{{designer.items.coffee}}</span></button>
+                  <button type="button" class="d-toggle" data-item="officechair" aria-pressed="false"><svg viewBox="0 0 240 160" aria-hidden="true" focusable="false"><use href="#d-officechair"/></svg><span>{{designer.items.officechair}}</span></button>
+                  <button type="button" class="d-toggle" data-item="plant" aria-pressed="false"><svg viewBox="0 0 80 160" aria-hidden="true" focusable="false"><use href="#d-plant"/></svg><span>{{designer.items.plant}}</span></button>
+              </div>
+            </div>
+            <p class="d-summary" data-js-only aria-live="polite" data-d-summary></p>
+            <div class="d-actions">
+              <a class="btn btn-lg btn-light" href="{{phone.href}}">
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>
+                <span>{{designer.cta}}</span>
+              </a>
+              <button type="button" class="btn btn-ghost-light" data-d-copy data-js-only>{{designer.copy}}</button>
+              <button type="button" class="d-reset" data-d-reset data-js-only>{{designer.reset}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── HOW IT WORKS (path drawing) ───────────── -->
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="how-head">
+          <p class="eyebrow" data-reveal>{{how.eyebrow}}</p>
+          <h2 class="h2" id="how-title" data-reveal>{{how.title}}</h2>
+        </div>
+        <svg class="how-line" viewBox="0 0 1000 80" width="1000" height="80" aria-hidden="true" focusable="false">
+          <path class="how-path" pathLength="1" d="M40 20H125C208 20 292 60 375 60S542 20 625 20S792 60 875 60H960" fill="none" stroke="#6B4226" stroke-width="3" stroke-linecap="round"/>
+          <g class="how-nodes" fill="#5B2A86">
+            <circle class="how-node" cx="125" cy="20" r="9"/><circle class="how-node" cx="375" cy="60" r="9"/>
+            <circle class="how-node" cx="625" cy="20" r="9"/><circle class="how-node" cx="875" cy="60" r="9"/>
+          </g>
+        </svg>
+        <div class="how-body">
+          <span class="how-rail" aria-hidden="true"><span class="how-rail-fill"></span></span>
+          <ol class="how-steps">
+            <li class="how-step"><span class="how-num" aria-hidden="true">1</span><h3 class="h3">{{how.s1.title}}</h3><p>{{how.s1.body}}</p></li>
+            <li class="how-step"><span class="how-num" aria-hidden="true">2</span><h3 class="h3">{{how.s2.title}}</h3><p>{{how.s2.body}}</p></li>
+            <li class="how-step"><span class="how-num" aria-hidden="true">3</span><h3 class="h3">{{how.s3.title}}</h3><p>{{how.s3.body}}</p></li>
+            <li class="how-step"><span class="how-num" aria-hidden="true">4</span><h3 class="h3">{{how.s4.title}}</h3><p>{{how.s4.body}}</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── MEASURE YOUR SPACE (dimension drawing) ───────────── -->
+    <section class="measure" id="measure" aria-labelledby="measure-title">
+      <div class="wrap measure-grid">
+        <div class="measure-plan" role="img" aria-label="{{measure.art}}"><!-- include:partials/measure-plan.svg --></div>
+        <div class="measure-copy">
+          <p class="eyebrow" data-reveal>{{measure.eyebrow}}</p>
+          <h2 class="h2" id="measure-title" data-reveal>{{measure.title}}</h2>
+          <p class="lede" data-reveal>{{measure.intro}}</p>
+          <ol class="measure-steps">
+            <li class="m-step" data-m="wd"><span class="m-num" aria-hidden="true">1</span><h3 class="h3">{{measure.s1.title}}</h3><p>{{measure.s1.body}}</p></li>
+            <li class="m-step" data-m="o"><span class="m-num" aria-hidden="true">2</span><h3 class="h3">{{measure.s2.title}}</h3><p>{{measure.s2.body}}</p></li>
+            <li class="m-step" data-m="clear"><span class="m-num" aria-hidden="true">3</span><h3 class="h3">{{measure.s3.title}}</h3><p>{{measure.s3.body}}</p></li>
+            <li class="m-step" data-m="h"><span class="m-num" aria-hidden="true">4</span><h3 class="h3">{{measure.s4.title}}</h3><p>{{measure.s4.body}}</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── VISIT ───────────── -->
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="wrap visit-grid">
+        <div class="visit-copy">
+          <p class="eyebrow" data-reveal>{{visit.eyebrow}}</p>
+          <h2 class="h2" id="visit-title" data-reveal>{{visit.title}}</h2>
+          <p class="lede" data-reveal>{{visit.body}}</p>
+          <dl class="visit-list">
+            <div data-reveal><dt>{{visit.addressLabel}}</dt><dd>{{visit.address}}</dd></div>
+            <div data-reveal><dt>{{visit.phoneLabel}}</dt><dd><a href="{{phone.href}}" aria-label="{{phone.aria}}"><bdi dir="ltr">{{phone.display}}</bdi></a></dd></div>
+          </dl>
+          <p class="visit-map-link" data-reveal><a href="{{visit.mapUrl}}" target="_blank" rel="noopener">{{visit.mapLink}}<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-{{@dir}}"/></svg></a></p>
+        </div>
+        <div class="visit-visual">
+          <figure class="visit-photo">
+            <div class="visit-photo-par" data-visit-photo><!-- img:visit-showroom sizes=visit alt=visit.photo --></div>
+            <span class="photo-tag" data-placeholder="photo">{{photos.tag}}</span>
+          </figure>
+          <a class="visit-map" href="{{visit.mapUrl}}" target="_blank" rel="noopener" aria-label="{{visit.mapAria}}">
+            <div class="map-cam" data-map-cam><!-- include:partials/map.svg --></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── MARQUEE 2 (reverse) ───────────── -->
+    <section class="marquee marquee--alt" aria-label="{{marquee2.label}}" data-marquee-reverse>
+      <div class="marquee-skew" data-marquee-skew>
+        <div class="marquee-track" data-marquee-track>
+          <p class="marquee-row">
+            <span>{{marquee2.w1}}</span><span class="m-dot" aria-hidden="true"></span>
+            <span>{{marquee2.w2}}</span><span class="m-dot" aria-hidden="true"></span>
+            <span>{{marquee2.w3}}</span><span class="m-dot" aria-hidden="true"></span>
+            <span>{{marquee2.w4}}</span><span class="m-dot" aria-hidden="true"></span>
+            <span>{{marquee2.w5}}</span><span class="m-dot" aria-hidden="true"></span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── FAQ (native <details>) ───────────── -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div class="faq-head">
+          <p class="eyebrow" data-reveal>{{faq.eyebrow}}</p>
+          <h2 class="h2" id="faq-title" data-reveal>{{faq.title}}</h2>
+          <p class="faq-call" data-reveal><a class="btn" href="{{phone.href}}"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>{{nav.call}}</span></a></p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" name="faq" open>
+            <summary><span>{{faq.q1}}</span><span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>{{faq.a1}}</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><span>{{faq.q2}}</span><span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>{{faq.a2}}</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><span>{{faq.q3}}</span><span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>{{faq.a3}}</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><span>{{faq.q4}}</span><span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>{{faq.a4}}</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><span>{{faq.q5}}</span><span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>{{faq.a5}}</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary><span>{{faq.q6}}</span><span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>{{faq.a6}}</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── FINAL CALL ───────────── -->
+    <section class="final" id="call" aria-labelledby="final-title">
+      <div class="wrap final-grid">
+        <div class="final-copy">
+          <h2 class="h2 final-title" id="final-title" data-reveal>{{cta.title}}</h2>
+          <p class="lede" data-reveal>{{cta.body}}</p>
+          <p class="final-label" data-reveal>{{cta.label}}</p>
+          <p class="final-phone" data-reveal><a href="{{phone.href}}" aria-label="{{phone.aria}}"><bdi dir="ltr">{{phone.display}}</bdi></a></p>
+          <div class="final-actions">
+            <div class="cta-load" data-final-cta>
+              <a class="btn btn-lg btn-light" href="{{phone.href}}" data-magnetic>
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>
+                <span>{{cta.button}}</span>
+              </a>
+            </div>
+            <a class="final-secondary" href="#visit">{{cta.secondary}}</a>
+          </div>
+        </div>
+        <div class="final-art" role="img" aria-label="{{cta.art}}"><!-- include:partials/cta-scene.svg --></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <p class="wordmark wordmark--footer">
+          <picture class="brand-logo brand-logo--footer"><source type="image/avif" srcset="/brand/logo-192.avif 1x, /brand/logo-320.avif 2x"><img src="/brand/logo-192.webp" srcset="/brand/logo-192.webp 1x, /brand/logo-320.webp 2x" width="192" height="192" alt="" loading="lazy" decoding="async"></picture>
+          <span class="wordmark-main">{{brand.name}}</span>
+          <span class="wordmark-alt" lang="{{@other}}">{{brand.alt}}</span>
+        </p>
+        <p class="footer-tagline">{{footer2.tagline}}</p>
+        <a class="lang-link" href="/{{@other}}/" hreflang="{{@other}}" lang="{{@other}}" aria-label="{{meta.otherLabel}}">{{meta.otherName}}</a>
+      </div>
+      <nav class="footer-col" aria-label="{{footer2.explore}}">
+        <p class="footer-h">{{footer2.explore}}</p>
+        <ul>
+          <li><a href="#story">{{nav.story}}</a></li>
+          <li><a href="#rooms">{{nav.rooms}}</a></li>
+          <li><a href="#pieces">{{nav.pieces}}</a></li>
+          <li><a href="#design-your-room">{{nav.design}}</a></li>
+          <li><a href="#faq">{{nav.faq}}</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-h">{{footer2.visit}}</p>
+        <p>{{visit.address}}</p>
+        <p><a href="{{visit.mapUrl}}" target="_blank" rel="noopener">{{visit.mapLink}}</a></p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-h">{{footer2.call}}</p>
+        <p><a class="footer-phone" href="{{phone.href}}" aria-label="{{phone.aria}}"><bdi dir="ltr">{{phone.display}}</bdi></a></p>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p class="footer-rights">{{footer.rights}}</p>
+    </div>
+  </footer>
+
+  <a class="callbar" href="{{phone.href}}">
+    <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>
+    <span>{{callbar}}</span>
+  </a>
+</body>
+</html>

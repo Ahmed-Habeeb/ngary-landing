@@ -1,0 +1,7 @@
+<svg class="piece-svg" viewBox="0 0 240 160" width="240" height="160" aria-hidden="true" focusable="false"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <path d="M86 62V28Q86 12 102 12H138Q154 12 154 28V62" fill="#F3EADF" stroke="#C8986A" stroke-width="4"/>
+  <rect x="50" y="62" width="140" height="72" rx="6" fill="#6B4226"/>
+  <g fill="#7A4E2D"><rect x="58" y="70" width="124" height="18" rx="3"/><rect x="58" y="92" width="124" height="18" rx="3"/><rect x="58" y="114" width="124" height="14" rx="3"/></g>
+  <g fill="#C8986A"><circle cx="120" cy="79" r="3"/><circle cx="120" cy="101" r="3"/><circle cx="120" cy="121" r="3"/></g>
+  <path d="M58 134h8l-1 7h-6zM174 134h8l-1 7h-6z" fill="#4A2C18"/>
+</svg>

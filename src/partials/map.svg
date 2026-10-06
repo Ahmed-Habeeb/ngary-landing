@@ -1,0 +1,23 @@
+<!-- Abstract, illustrative map (NOT a real location). Layers are separate so
+     visit.js can give them a light camera zoom / parallax. -->
+<svg class="map-svg" viewBox="0 0 600 420" width="600" height="420" aria-hidden="true" focusable="false">
+  <rect width="600" height="420" fill="#EFE4D6"/>
+  <g class="map-blocks" fill="#E2D2BE">
+    <rect x="24" y="24" width="150" height="96" rx="10"/><rect x="200" y="24" width="120" height="96" rx="10"/>
+    <rect x="346" y="24" width="230" height="60" rx="10"/><rect x="24" y="148" width="110" height="120" rx="10"/>
+    <rect x="160" y="148" width="160" height="120" rx="10"/><rect x="346" y="112" width="110" height="156" rx="10"/>
+    <rect x="482" y="112" width="94" height="156" rx="10"/><rect x="24" y="296" width="200" height="100" rx="10"/>
+    <rect x="250" y="296" width="140" height="100" rx="10"/><rect x="416" y="296" width="160" height="100" rx="10"/>
+  </g>
+  <circle cx="240" cy="208" r="34" fill="#D9C7A6"/>
+  <g class="map-roads" fill="none" stroke-linecap="round">
+    <path d="M0 134H600M0 282H600M187 0V420M333 0V420M469 100V420" stroke="#FAF6F0" stroke-width="18"/>
+    <path d="M0 134H600M187 0V420" stroke="#B79AD6" stroke-width="3" stroke-dasharray="12 10"/>
+  </g>
+  <g class="map-pin">
+    <ellipse cx="333" cy="286" rx="22" ry="6" fill="#141114" opacity=".2"/>
+    <path d="M333 284C333 284 289 236 289 206A44 44 0 1 1 377 206C377 236 333 284 333 284Z" fill="#5B2A86"/>
+    <circle cx="333" cy="204" r="30" fill="#FAF6F0"/>
+    <use href="#chair" x="309" y="180" width="48" height="48" class="chair chair--plum"/>
+  </g>
+</svg>

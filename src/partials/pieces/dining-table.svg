@@ -1,0 +1,7 @@
+<svg class="piece-svg" viewBox="0 0 240 160" width="240" height="160" aria-hidden="true" focusable="false"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <use class="chair chair--linen" href="#chair" x="-6" y="34" width="110" height="110"/>
+  <use class="chair chair--linen" href="#chair" x="136" y="34" width="110" height="110"/>
+  <rect x="44" y="84" width="152" height="10" rx="2" fill="#C8986A"/><rect x="44" y="94" width="152" height="5" fill="#A87A4F"/>
+  <path d="M58 99h9l-2 42h-5zM173 99h9l-2 42h-5z" fill="#6B4226"/>
+  <path d="M112 84Q110 66 120 58Q130 66 128 84Z" fill="#B79AD6"/>
+</svg>

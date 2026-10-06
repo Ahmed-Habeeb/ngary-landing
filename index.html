@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ngary · نجاري</title>
+  <meta name="robots" content="noindex, follow">
+  <!-- PLACEHOLDER origin (https://nagary.example) — keep in sync with SITE in vite.config.js -->
+  <link rel="canonical" href="https://nagary.example/ar/">
+  <link rel="alternate" hreflang="ar" href="https://nagary.example/ar/">
+  <link rel="alternate" hreflang="en" href="https://nagary.example/en/">
+  <link rel="alternate" hreflang="x-default" href="https://nagary.example/">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script>
+    // Visitors whose browser prefers English go to /en/; everyone else (and
+    // anyone without JS, via the meta refresh below) lands on Arabic.
+    try {
+      var l = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+      location.replace(/^en\b/i.test(l) ? '/en/' : '/ar/');
+    } catch (e) {}
+  </script>
+  <meta http-equiv="refresh" content="0; url=/ar/">
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-content: center; gap: 1rem;
+      background: #22122E; color: #FAF6F0; font: 1.25rem/1.5 system-ui, sans-serif; text-align: center; }
+    a { color: #FAF6F0; text-underline-offset: .25em; }
+    a:focus-visible { outline: 3px solid #C8986A; outline-offset: 4px; }
+  </style>
+</head>
+<body>
+  <p><a href="/ar/" hreflang="ar" lang="ar">العربية</a></p>
+  <p><a href="/en/" hreflang="en" lang="en">English</a></p>
+</body>
+</html>

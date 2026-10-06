@@ -1,0 +1,40 @@
+<!-- Top-down room plan + an elevation inset. Dimension lines (.m-dim,
+     pathLength=1) are drawn by measure.js; authored fully drawn for no-JS. -->
+<svg class="plan-svg" viewBox="0 0 460 350" width="460" height="350" aria-hidden="true" focusable="false">
+  <rect x="40" y="40" width="300" height="240" fill="#F7F0E6"/>
+  <path d="M200 40H300" stroke="#B79AD6" stroke-width="8"/>
+  <path d="M140 280H40V40H340V280H200" fill="none" stroke="#141114" stroke-width="8" stroke-linejoin="miter"/>
+  <g class="m-furniture">
+    <rect x="70" y="58" width="170" height="58" rx="12" fill="#5B2A86"/>
+    <rect x="84" y="74" width="142" height="40" rx="8" fill="#6E3A9C"/>
+    <ellipse cx="155" cy="182" rx="42" ry="24" fill="#C8986A"/>
+    <rect x="262" y="166" width="60" height="62" rx="12" fill="#5B2A86"/>
+    <rect x="270" y="186" width="44" height="36" rx="8" fill="#6E3A9C"/>
+  </g>
+  <g class="m-clear">
+    <rect x="70" y="124" width="170" height="30" rx="4" fill="#B79AD6" opacity=".35"/>
+    <rect x="70" y="124" width="170" height="30" rx="4" fill="none" stroke="#5B2A86" stroke-width="1.5" stroke-dasharray="5 5"/>
+  </g>
+  <path class="m-door" d="M200 280V222" stroke="#6B4226" stroke-width="4"/>
+  <path class="m-arc m-draw" pathLength="1" d="M142 280A58 58 0 0 1 200 222" fill="none" stroke="#6B4226" stroke-width="1.5"/>
+
+  <g fill="none" stroke="#5B2A86" stroke-width="2" stroke-linecap="round">
+    <path class="m-draw m-w" pathLength="1" d="M40 18H340M40 10V26M340 10V26"/>
+    <path class="m-draw m-d" pathLength="1" d="M362 40V280M354 40H370M354 280H370"/>
+    <path class="m-draw m-o" pathLength="1" d="M140 304H200M140 296V312M200 296V312"/>
+  </g>
+  <g class="m-labels" font-size="14" font-weight="600" fill="#5B2A86">
+    <text class="m-label m-w" x="190" y="12" text-anchor="middle">{{measure.lw}}</text>
+    <text class="m-label m-d" x="352" y="164" text-anchor="end">{{measure.ld}}</text>
+    <text class="m-label m-o" x="170" y="332" text-anchor="middle">{{measure.lo}}</text>
+  </g>
+
+  <g class="m-inset">
+    <path d="M384 100H452" stroke="#141114" stroke-width="2" stroke-dasharray="4 4" opacity=".5"/>
+    <path d="M384 280H452" stroke="#141114" stroke-width="3"/>
+    <rect x="404" y="128" width="42" height="152" rx="3" fill="#6B4226"/>
+    <path d="M425 136V272" stroke="#4A2C18" stroke-width="2"/>
+    <path class="m-draw m-h" pathLength="1" d="M392 100V280M386 100H398M386 280H398" fill="none" stroke="#5B2A86" stroke-width="2" stroke-linecap="round"/>
+    <text class="m-label m-h" x="425" y="92" text-anchor="middle" font-size="14" font-weight="600" fill="#5B2A86">{{measure.lh}}</text>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+verify-output/
+.DS_Store
+*.log
+assets-src/preview.png
+# the logo as pasted in; the source copy lives in assets-src/brand/
+/Pasted*.png

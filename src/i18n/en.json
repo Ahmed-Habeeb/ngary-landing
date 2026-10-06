@@ -1,0 +1,337 @@
+{
+  "meta": {
+    "title": "Ngary · Furniture made for your home: showroom, custom orders & delivery",
+    "description": "Ngary furniture for the living room, bedroom, dining room and office. Made in our own workshop, made to order and delivered to your home. Call us or visit the showroom.",
+    "ogLocale": "en_US",
+    "ogLocaleAlt": "ar_AR",
+    "ogImage": "/og/og-en.png",
+    "ogImageAlt": "Ngary: furniture made for your home",
+    "otherName": "العربية",
+    "otherLabel": "اقرأ هذه الصفحة بالعربية"
+  },
+  "brand": {
+    "name": "Ngary",
+    "alt": "نجاري",
+    "home": "Ngary, back to top"
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "nav": "Main"
+  },
+  "nav": {
+    "story": "How it's made",
+    "rooms": "Rooms",
+    "visit": "Visit",
+    "call": "Call us",
+    "pieces": "Pieces",
+    "faq": "FAQ",
+    "design": "Design your room"
+  },
+  "phone": {
+    "display": "+20 100 549 3601",
+    "href": "tel:+201005493601",
+    "e164": "+201005493601",
+    "aria": "Call Ngary on +20 100 549 3601"
+  },
+  "hero": {
+    "eyebrow": "Ngary Furniture",
+    "title_html": "Furniture made <em>for your home</em>",
+    "sub": "Living room, bedroom, dining and office furniture, made in our own workshop to your size and fabric, and delivered to your door.",
+    "cta": "Call us now",
+    "secondary": "Explore the rooms",
+    "note": "Prefer to see it in person?",
+    "noteLink": "Visit our showroom",
+    "art": "Illustration: a purple upholstered armchair with a walnut wood frame"
+  },
+  "story": {
+    "eyebrow": "How a piece is made",
+    "title": "From a sketch to your living room",
+    "step": "Step",
+    "of": "of",
+    "dim": "Made to your size",
+    "art": "Illustration: an armchair taking shape, from a pencil sketch to a wooden frame, then upholstery, then placed in a room",
+    "s1": {
+      "title": "It starts with your idea",
+      "body": "Tell us the size, the style and the room it's for. We sketch the piece around how you live, and custom orders are welcome."
+    },
+    "s2": {
+      "title": "Built in our own workshop",
+      "body": "The frame is made by our team, in our own workshop, before a single cushion goes on."
+    },
+    "s3": {
+      "title": "Your fabric, your colour",
+      "body": "Choose the upholstery and finish that suit your home. The same chair looks completely different in your fabric."
+    },
+    "s4": {
+      "title": "Delivered to your home",
+      "body": "When it's ready, we deliver it to your door. Call us to start your piece."
+    },
+    "cta": "Call to start your order"
+  },
+  "marquee": {
+    "label": "What we make",
+    "w1": "Living rooms",
+    "w2": "Bedrooms",
+    "w3": "Dining rooms",
+    "w4": "Offices",
+    "w5": "Every kind of furniture"
+  },
+  "rooms": {
+    "eyebrow": "Rooms",
+    "title": "Furniture for every room in the house",
+    "intro": "From the living room to the office, and any piece you can describe to us.",
+    "living": {
+      "title": "Living room",
+      "body": "Sofas, armchairs and tables for the room where everyone gathers.",
+      "link": "Call about living room furniture",
+      "photo": "A living room with a green sofa, a wooden coffee table and a patterned rug"
+    },
+    "bedroom": {
+      "title": "Bedroom",
+      "body": "Beds, wardrobes and dressers for a calm, comfortable bedroom.",
+      "link": "Call about bedroom furniture",
+      "photo": "A bedroom with an upholstered bed, dark wood panelling and wall lamps"
+    },
+    "dining": {
+      "title": "Dining room",
+      "body": "Dining tables, chairs and sideboards for every meal together.",
+      "link": "Call about dining furniture",
+      "photo": "A dining room with a wooden table and bentwood chairs by a large window"
+    },
+    "office": {
+      "title": "Office",
+      "body": "Desks, office chairs and storage for work at home or at the office.",
+      "link": "Call about office furniture",
+      "photo": "A home office with a wooden desk, an office chair and shelves"
+    },
+    "custom": {
+      "title": "Anything else",
+      "body": "Can't find the piece you need? Describe it, and we'll make it to order in our workshop.",
+      "link": "Call to order a custom piece",
+      "photo": "Hands sketching a furniture design on a workbench"
+    }
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "Four steps from a phone call to your home",
+    "s1": {
+      "title": "Call us",
+      "body": "Tell us what you're looking for. We'll answer your questions and help you plan."
+    },
+    "s2": {
+      "title": "Visit or describe it",
+      "body": "See pieces in our showroom, or describe the piece you have in mind."
+    },
+    "s3": {
+      "title": "We make it",
+      "body": "Custom pieces are made in our workshop to your size, fabric and finish."
+    },
+    "s4": {
+      "title": "We deliver",
+      "body": "Your furniture is delivered to your home."
+    }
+  },
+  "visit": {
+    "eyebrow": "Showroom",
+    "title": "Come and see it in person",
+    "body": "Sit on it, feel the fabrics, and talk to our team about your piece.",
+    "addressLabel": "Address",
+    "address": "Menyet Shebeen, Shibin El Qanater, Qalyubia, Egypt",
+    "phoneLabel": "Phone",
+    "art": "Illustrated map with a pin marking the showroom (illustration only, not a real map)",
+    "photo": "A furnished open-plan living and dining space with arched windows",
+    "mapUrl": "https://maps.app.goo.gl/KiF7diruFPpd5qVL8",
+    "mapLink": "Open in Google Maps",
+    "mapAria": "Open the Ngary showroom location in Google Maps",
+    "locality": "Shibin El Qanater",
+    "region": "Qalyubia"
+  },
+  "cta": {
+    "title": "Ready for a piece made for your home?",
+    "body": "Call Ngary. We'll help you choose, make it to order, and deliver it to you.",
+    "label": "Call us on",
+    "button": "Call now",
+    "secondary": "or visit the showroom",
+    "art": "Illustration: the finished purple armchair under a glowing floor lamp"
+  },
+  "footer": {
+    "rights": "© 2026 Ngary. All rights reserved.",
+    "logo": "[Logo]"
+  },
+  "callbar": "Call Ngary",
+  "why": {
+    "eyebrow": "Why Ngary",
+    "title": "One place to see it, design it, make it and deliver it",
+    "workshop": {
+      "title": "Our own workshop",
+      "body": "Your piece is built by our team, in our own workshop.",
+      "photo": "A woodworker shaping a piece of wood with a chisel and mallet"
+    },
+    "measure": {
+      "title": "Made to measure",
+      "body": "Your size, your fabric, your finish. Custom orders are welcome.",
+      "photo": "Measuring and marking a wooden plank with a tape measure and pencil"
+    },
+    "showroom": {
+      "title": "A showroom to visit",
+      "body": "See it, sit on it and feel the fabrics before you decide.",
+      "photo": "A showroom filled with wooden furniture"
+    },
+    "delivery": {
+      "title": "Delivered to your door",
+      "body": "When your furniture is ready, we bring it to your home.",
+      "photo": "Two men carrying a sofa into a house"
+    }
+  },
+  "pieces": {
+    "eyebrow": "Pieces",
+    "title": "What are you looking for?",
+    "intro": "A few of the pieces you can ask us about, and anything else you have in mind.",
+    "note": "[Inspiration photos for now: real Ngary photos coming soon]",
+    "ask": "Ask about it",
+    "hint": "Scroll to browse",
+    "sofa": "Sofas",
+    "armchair": "Armchairs",
+    "coffee": "Coffee tables",
+    "bed": "Beds",
+    "wardrobe": "Wardrobes",
+    "dresser": "Dressers",
+    "dining": "Dining tables & chairs",
+    "sideboard": "Sideboards",
+    "desk": "Desks",
+    "officechair": "Office chairs",
+    "storage": "Shelves & storage",
+    "room_living": "Living room",
+    "room_bedroom": "Bedroom",
+    "room_dining": "Dining room",
+    "room_office": "Office"
+  },
+  "config": {
+    "seatLabel": "Upholstery colour",
+    "woodLabel": "Wood finish",
+    "seat": {
+      "plum": "Plum",
+      "lilac": "Lilac",
+      "linen": "Linen",
+      "caramel": "Caramel",
+      "charcoal": "Charcoal",
+      "cognac": "Cognac"
+    },
+    "wood": {
+      "walnut": "Walnut",
+      "oak": "Oak",
+      "ebony": "Ebony"
+    }
+  },
+  "measure": {
+    "eyebrow": "Before you call",
+    "title": "Measure your space",
+    "intro": "Have these numbers ready and we can talk about sizes straight away.",
+    "art": "Illustration: a room plan with width, depth, door and height measurements",
+    "lw": "Width",
+    "ld": "Depth",
+    "lo": "Door",
+    "lh": "Height",
+    "s1": {
+      "title": "The wall or corner",
+      "body": "Measure the width and depth of the space where the piece will stand."
+    },
+    "s2": {
+      "title": "Doors, stairs and lifts",
+      "body": "Check the width of every door, stairwell and lift on the way in."
+    },
+    "s3": {
+      "title": "Room to move",
+      "body": "Leave space to walk around it and to open doors and drawers."
+    },
+    "s4": {
+      "title": "Height",
+      "body": "For tall pieces like wardrobes and shelves, measure up to the ceiling."
+    }
+  },
+  "marquee2": {
+    "label": "How Ngary works",
+    "w1": "Call us",
+    "w2": "Visit the showroom",
+    "w3": "Made to measure",
+    "w4": "Built in our workshop",
+    "w5": "Delivered to your door"
+  },
+  "faq": {
+    "eyebrow": "Questions",
+    "title": "Good to know",
+    "q1": "Can you make a piece to my size?",
+    "a1": "Yes. Custom orders are welcome: tell us the size, style and room, and we will make it in our workshop.",
+    "q2": "Can I choose the fabric and colour?",
+    "a2": "Yes. You choose the upholstery and finish that suit your home, and you can see options in our showroom.",
+    "q3": "Do you deliver?",
+    "a3": "Yes, we deliver your furniture to your home. Call us to ask about your area and timing.",
+    "q4": "How long does a custom piece take?",
+    "a4": "It depends on the piece. Call us and we will tell you the time for yours.",
+    "q5": "Can I see pieces before I order?",
+    "a5": "Yes. Visit our showroom to see, sit on and compare pieces.",
+    "q6": "What is the best way to start?",
+    "a6": "Call us. Tell us what you need and we will guide you from there."
+  },
+  "footer2": {
+    "explore": "Explore",
+    "visit": "Visit",
+    "call": "Call",
+    "tagline": "Furniture made for your home: showroom, own workshop, custom orders and delivery."
+  },
+  "photos": {
+    "tag": "Inspiration photo"
+  },
+  "designer": {
+    "eyebrow": "Design your room",
+    "title": "Plan your room, then call us with it",
+    "body": "Pick a room, set the walls, floor and fabrics, add pieces and drag them into place. Your design stays on this device, so you can describe it when you call.",
+    "stageLabel": "Your room",
+    "roomLabel": "Room",
+    "wallLabel": "Walls",
+    "floorLabel": "Floor",
+    "seatLabel": "Fabric",
+    "woodLabel": "Wood",
+    "piecesLabel": "Pieces",
+    "walls": {
+      "white": "Warm white",
+      "linen": "Linen",
+      "lilac": "Lilac",
+      "plum": "Plum",
+      "charcoal": "Charcoal"
+    },
+    "floors": {
+      "oak": "Oak",
+      "walnut": "Walnut",
+      "stone": "Stone",
+      "ebony": "Ebony"
+    },
+    "items": {
+      "rug": "Rug",
+      "sofa": "Sofa",
+      "armchair": "Armchair",
+      "coffee": "Coffee table",
+      "lamp": "Floor lamp",
+      "plant": "Plant",
+      "art": "Wall art",
+      "shelf": "Bookshelf",
+      "sideboard": "Sideboard",
+      "bed": "Bed",
+      "wardrobe": "Wardrobe",
+      "dresser": "Dresser",
+      "dining": "Dining set",
+      "desk": "Desk",
+      "officechair": "Office chair",
+      "pendant": "Pendant lamp"
+    },
+    "hint": "Drag pieces to move them. With a keyboard: Tab to a piece, use the arrow keys to move it and Delete to remove it.",
+    "noJs": "Turn on JavaScript to add and move pieces, or call us and describe your room.",
+    "itemAria": "{name}: arrow keys move it, Delete removes it",
+    "pattern": "{room} · Walls: {wall} · Floor: {floor} · Fabric: {seat} · Wood: {wood} · Pieces ({count}): {list}",
+    "none": "none yet",
+    "cta": "Call us with this room",
+    "copy": "Copy my room list",
+    "copied": "Copied",
+    "reset": "Start again"
+  }
+}

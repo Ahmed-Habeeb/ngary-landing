@@ -1,0 +1,8 @@
+<svg class="piece-svg" viewBox="0 0 240 160" width="240" height="160" aria-hidden="true" focusable="false"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <rect x="60" y="10" width="120" height="128" rx="4" fill="#6B4226"/>
+  <rect x="68" y="18" width="104" height="112" fill="#4A2C18"/>
+  <g fill="#6B4226"><rect x="68" y="52" width="104" height="5"/><rect x="68" y="90" width="104" height="5"/></g>
+  <g><rect x="74" y="26" width="10" height="26" fill="#B79AD6"/><rect x="86" y="30" width="8" height="22" fill="#C8986A"/><rect x="96" y="24" width="12" height="28" fill="#5B2A86"/><rect x="130" y="34" width="30" height="18" rx="8" fill="#F3EADF"/>
+     <rect x="74" y="66" width="34" height="24" rx="3" fill="#C8986A"/><rect x="120" y="62" width="9" height="28" fill="#FAF6F0"/><rect x="131" y="66" width="9" height="24" fill="#5B2A86"/><rect x="142" y="60" width="11" height="30" fill="#B79AD6"/>
+     <rect x="76" y="100" width="12" height="30" fill="#5B2A86"/><rect x="90" y="104" width="10" height="26" fill="#FAF6F0"/><path d="M140 130Q138 110 150 102Q162 110 160 130Z" fill="#C8986A"/></g>
+</svg>

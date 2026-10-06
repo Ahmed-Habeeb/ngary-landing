@@ -1,0 +1,11 @@
+<svg class="cta-svg" viewBox="0 0 400 400" width="400" height="400" aria-hidden="true" focusable="false">
+  <circle class="cta-glow" cx="320" cy="120" r="190" fill="url(#g-glow)"/>
+  <path d="M34 350H366L384 374H16Z" fill="#3A2449"/>
+  <g>
+    <path d="M320 104V350" stroke="#FAF6F0" stroke-width="3" opacity=".8"/>
+    <ellipse cx="320" cy="352" rx="18" ry="4.5" fill="#FAF6F0" opacity=".8"/>
+    <path d="M296 74H344L356 106H284Z" fill="#C8986A"/>
+  </g>
+  <path class="cta-light" d="M284 106H356L392 340H190Z" fill="url(#g-light)" opacity=".45"/>
+  <use class="chair chair--plum-glow" href="#chair" x="0" y="0" width="400" height="400" transform="translate(-30 0)"/>
+</svg>

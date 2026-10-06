@@ -1,0 +1,191 @@
+{
+  "room-living": {
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "width": 1280,
+    "height": 960
+  },
+  "room-bedroom": {
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "width": 1280,
+    "height": 960
+  },
+  "room-dining": {
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "width": 1280,
+    "height": 960
+  },
+  "room-office": {
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "width": 1280,
+    "height": 960
+  },
+  "room-custom": {
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "width": 1280,
+    "height": 960
+  },
+  "why-workshop": {
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "width": 1200,
+    "height": 750
+  },
+  "why-measure": {
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "width": 1200,
+    "height": 750
+  },
+  "why-showroom": {
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "width": 1200,
+    "height": 750
+  },
+  "why-delivery": {
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "width": 1200,
+    "height": 750
+  },
+  "visit-showroom": {
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "width": 1280,
+    "height": 960
+  },
+  "piece-sofa": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-armchair": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-coffee": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-bed": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-wardrobe": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-dresser": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-dining": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-sideboard": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-desk": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-officechair": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  },
+  "piece-storage": {
+    "widths": [
+      360,
+      560,
+      800
+    ],
+    "width": 800,
+    "height": 800
+  }
+}

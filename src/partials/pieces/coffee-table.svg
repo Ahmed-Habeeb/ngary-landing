@@ -1,0 +1,6 @@
+<svg class="piece-svg" viewBox="0 0 240 160" width="240" height="160" aria-hidden="true" focusable="false"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <path d="M58 100l-6 40h6l10-40zM182 100l6 40h-6l-10-40zM92 104l-2 32h5l4-32zM148 104l2 32h-5l-4-32z" fill="#6B4226"/>
+  <ellipse cx="120" cy="96" rx="88" ry="16" fill="#A87A4F"/><ellipse cx="120" cy="92" rx="88" ry="16" fill="#C8986A"/>
+  <path d="M104 80Q102 62 112 54Q122 62 120 80Z" fill="#B79AD6"/><rect x="100" y="78" width="24" height="8" rx="3" fill="#FAF6F0"/>
+  <rect x="138" y="80" width="34" height="6" rx="1.5" fill="#5B2A86"/><rect x="141" y="75" width="28" height="5" rx="1.5" fill="#FAF6F0"/>
+</svg>

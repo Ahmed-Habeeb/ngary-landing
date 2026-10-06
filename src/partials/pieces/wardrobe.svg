@@ -1,0 +1,7 @@
+<svg class="piece-svg" viewBox="0 0 240 160" width="240" height="160" aria-hidden="true" focusable="false"><ellipse cx="120" cy="143" rx="96" ry="5" fill="#141114" opacity=".14"/>
+  <rect x="66" y="10" width="108" height="124" rx="6" fill="#6B4226"/>
+  <rect x="62" y="8" width="116" height="8" rx="3" fill="#55331C"/>
+  <rect x="73" y="22" width="44" height="104" rx="3" fill="#7A4E2D"/><rect x="123" y="22" width="44" height="104" rx="3" fill="#7A4E2D"/>
+  <rect x="110" y="66" width="3" height="20" rx="1.5" fill="#C8986A"/><rect x="127" y="66" width="3" height="20" rx="1.5" fill="#C8986A"/>
+  <path d="M74 134h8l-1 7h-6zM158 134h8l-1 7h-6z" fill="#4A2C18"/>
+</svg>
