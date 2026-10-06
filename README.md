@@ -31,6 +31,24 @@ npm run verify     # build + headless-Chrome checks + contact sheets (verify-out
 npm run og         # re-render public/og/*.png (needs preview running)
 ```
 
+## Live demo (GitHub Pages)
+
+**https://ahmed-habeeb.github.io/ngary-landing/**. The root page redirects to `/ar/` or `/en/`.
+
+Every push to `main` deploys automatically through `.github/workflows/deploy-pages.yml`:
+1. It runs `npm ci`.
+2. It builds with `vite build --base=/ngary-landing/` and sets `SITE_URL` to the Pages URL.
+3. It publishes `dist/`.
+
+You can also start a deploy by hand from the repo's **Actions** tab ("Run workflow").
+
+Locally, nothing changes: `npm run dev` and `npm run build` use base `/`. The base path is a build setting:
+- photo, logo and asset URLs are rewritten by Vite
+- the language links use `{{@base}}`
+- the root redirect page uses relative links
+
+GitHub Pages only publishes a **private** repo on a paid plan. That's why this repo is public.
+
 ## Where things live
 
 | Path | What |
@@ -96,7 +114,7 @@ All are marked `data-placeholder` in the markup (the verify report counts them):
 | What | Where |
 |---|---|
 | Logo (text wordmark for now) and favicon | `.wordmark` in the template, `public/favicon.svg` |
-| Production origin for canonical/OG/hreflang | `SITE` in `vite.config.js` **and** the root `index.html` |
+| Custom domain (if you get one) | set it in the repo's Settings → Pages; the workflow picks the new URL up automatically |
 | OG share images | `public/og/og-*.png` (generated placeholder cards, `npm run og`) |
 | `og:locale` territory (`ar_AR` / `en_US`) | `meta.ogLocale` in both JSON files |
 | Real product and showroom photos. The current ones are free stock photos, labelled "Inspiration photo" on the page (see `CREDITS.md`). | `assets-src/photos/` + `python3 scripts/images.py` |
