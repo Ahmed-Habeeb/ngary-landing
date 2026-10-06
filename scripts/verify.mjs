@@ -40,7 +40,7 @@ const VIEWPORTS = [
 ].filter(([w, h]) => !args.vp || String(args.vp).split(',').includes(`${w}x${h}`));
 const LANGS = pick('langs', ['ar', 'en']);
 const MODES = pick('only', ['motion', 'reduce', 'nojs', 'intro', 'resize']);
-const CONCURRENCY = Number(args.concurrency || 4);
+const CONCURRENCY = Number(args.concurrency || 3);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const results = [];
@@ -295,7 +295,7 @@ async function contactSheet(name, shots, { cols, thumbW, title }) {
   const cells = shots
     .map(
       (s, i) =>
-        `<figure><img src="data:image/png;base64,${s.b64}" width="${thumbW}"><figcaption>#${i} · y=${s.y}${s.note ? ' · ' + s.note : ''}</figcaption></figure>`,
+        `<figure><img src="data:image/jpeg;base64,${s.b64}" width="${thumbW}"><figcaption>#${i} · y=${s.y}${s.note ? ' · ' + s.note : ''}</figcaption></figure>`,
     )
     .join('');
   await page.setViewport({ width: cols * (thumbW + 12) + 12, height: 400, deviceScaleFactor: 1 });
@@ -307,28 +307,6 @@ async function contactSheet(name, shots, { cols, thumbW, title }) {
       figure{margin:0} img{display:block;height:auto;outline:1px solid #555}
       figcaption{padding-top:3px;color:#ccc}
     </style><h1>${title}</h1><div class="g">${cells}</div>`,
-    { waitUntil: 'load' },
-  );
-  await page.screenshot({ path: resolve(SHEETS, `${name}.png`), fullPage: true });
-  await page.close();
-}
-
-/** Split a very tall full-page screenshot into side-by-side columns. */
-async function tallSheet(name, b64, w, totalH, title) {
-  const sliceH = Math.max(2400, Math.ceil(totalH / 4));
-  const n = Math.ceil(totalH / sliceH);
-  const scale = Math.min(1, 520 / w);
-  const colW = Math.round(w * scale);
-  const page = await browser.newPage();
-  const cols = Array.from({ length: n }, (_, i) => {
-    const hh = Math.min(sliceH, totalH - i * sliceH);
-    return `<div class="c" style="width:${colW}px;height:${Math.round(hh * scale)}px;background-image:url(data:image/png;base64,${b64});background-size:${colW}px auto;background-position:0 -${Math.round(i * sliceH * scale)}px"></div>`;
-  }).join('');
-  await page.setViewport({ width: n * (colW + 12) + 12, height: 400, deviceScaleFactor: 1 });
-  await page.setContent(
-    `<!doctype html><style>body{margin:0;padding:6px;background:#2b2b2b;font:12px system-ui;color:#eee}
-     h1{font-size:14px;margin:4px 6px 8px}.r{display:flex;gap:12px;align-items:flex-start;padding:0 6px}.c{outline:1px solid #555}</style>
-     <h1>${title}</h1><div class="r">${cols}</div>`,
     { waitUntil: 'load' },
   );
   await page.screenshot({ path: resolve(SHEETS, `${name}.png`), fullPage: true });
@@ -429,7 +407,7 @@ async function scrollRun(lang, [w, h], mode) {
         const hidden = snap.caps.filter((c) => c.o < 0.99 || c.v !== 'visible');
         if (hidden.length) problems.push(`in-flow story caption hidden at y=${snap.y}`);
       }
-      shots.push({ b64: await page.screenshot({ encoding: 'base64' }), y: snap.y, note: snap.state || '' });
+      shots.push({ b64: await page.screenshot({ encoding: 'base64', type: 'jpeg', quality: 72 }), y: snap.y, note: snap.state || '' });
       if (y >= total - h) break;
       // Watch the header while the scroll + snap happens: it must not flicker.
       const watch = page.evaluate(
@@ -491,7 +469,7 @@ async function scrollRun(lang, [w, h], mode) {
   } catch (e) {
     record(name, [...problems, `crashed: ${e.message}`]);
   } finally {
-    await context.close();
+    await context.close().catch(() => {});
   }
 }
 
@@ -530,14 +508,25 @@ async function noJsRun(lang, [w, h]) {
     });
     problems.push(...vis.map((v) => `not visible without JS: ${v}`));
     const totalH = await page.evaluate(() => document.documentElement.scrollHeight);
-    // rAF does not run without JS, so take ONE full-page screenshot.
-    const b64 = await page.screenshot({ encoding: 'base64', fullPage: true });
-    await tallSheet(name, b64, w, totalH, `${name} · full page ${totalH}px`);
+    // rAF does not run without JS, so capture the whole page in one pass, as
+    // clipped slices (one giant screenshot as a data URL crashes the sheet tab).
+    const sliceH = 2400;
+    const slices = [];
+    for (let y = 0; y < totalH; y += sliceH) {
+      const height = Math.min(sliceH, totalH - y);
+      slices.push({
+        b64: await page.screenshot({ encoding: 'base64', type: 'jpeg', quality: 72, captureBeyondViewport: true, clip: { x: 0, y, width: w, height } }),
+        y,
+        note: `${y}–${y + height}px`,
+      });
+    }
+    const thumbW = Math.min(w, w >= 1024 ? 300 : 200);
+    await contactSheet(name, slices, { cols: Math.min(8, slices.length), thumbW, title: `${name} · full page ${totalH}px in ${slices.length} slices` });
     record(name, problems);
   } catch (e) {
     record(name, [...problems, `crashed: ${e.message}`]);
   } finally {
-    await context.close();
+    await context.close().catch(() => {});
   }
 }
 
@@ -583,7 +572,7 @@ async function introRun(lang) {
   } catch (e) {
     record(name, [...problems, `crashed: ${e.message}`]);
   } finally {
-    await context.close();
+    await context.close().catch(() => {});
   }
 
   // Failsafe: main.js never loads → the CSS animation must still lift the cover.
@@ -605,7 +594,7 @@ async function introRun(lang) {
   } catch (e) {
     record(fname, [...f.problems, `crashed: ${e.message}`]);
   } finally {
-    await f.context.close();
+    await f.context.close().catch(() => {});
   }
 }
 
@@ -631,7 +620,7 @@ async function resizeRun(lang) {
     await page.evaluate(() => document.fonts.ready);
     await sleep(800);
     const shots = [];
-    const shot = async (note) => shots.push({ b64: await page.screenshot({ encoding: 'base64' }), y: await page.evaluate(() => Math.round(scrollY)), note });
+    const shot = async (note) => shots.push({ b64: await page.screenshot({ encoding: 'base64', type: 'jpeg', quality: 72 }), y: await page.evaluate(() => Math.round(scrollY)), note });
 
     // 1 · mid-story: 1280 → 800 (desktop → tablet) → 1280
     const storyTop = await page.evaluate(() => document.querySelector('[data-story-pin]').getBoundingClientRect().top + window.scrollY);
@@ -671,7 +660,7 @@ async function resizeRun(lang) {
   } catch (e) {
     record(name, [...problems, `crashed: ${e.message}`]);
   } finally {
-    await context.close();
+    await context.close().catch(() => {});
   }
 }
 
